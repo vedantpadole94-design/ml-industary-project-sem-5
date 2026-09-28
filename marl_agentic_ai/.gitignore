@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+*.coveragerc
+.hypothesis/
+
+# Ray & RLlib
+ray_results/
+~/ray_results/
+
+# Runs & Checkpoints
+runs/
+checkpoints/
+*.checkpoint
+
+# TensorBoard logs
+logs/
+tb_logs/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Docker
+.dockerignore
+
+# Misc
+*.log
+*.tmp
+*.bak
+tmp/
+temp/

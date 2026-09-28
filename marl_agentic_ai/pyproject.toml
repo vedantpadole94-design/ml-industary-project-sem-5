@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "marl-agentic-ai"
+version = "0.1.0"
+description = "Multi-Agent Reinforcement Learning Research Framework with Cooperative Grid World"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "MARL Research Team"}
+]
+keywords = ["reinforcement-learning", "multi-agent", "pettingzoo", "rllib", "pytorch"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "pettingzoo>=1.24.0",
+    "ray[rllib]>=2.9.0",
+    "torch>=2.1.0",
+    "gymnasium>=0.29.0",
+    "numpy>=1.26.0",
+    "scipy>=1.11.0",
+    "pandas>=2.1.0",
+    "pyyaml>=6.0.1",
+    "pydantic>=2.4.0",
+    "tensorboard>=2.15.0",
+    "matplotlib>=3.8.0",
+    "tqdm>=4.66.0",
+    "rich>=13.6.0",
+    "typer>=0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "jupyterlab>=4.0.0",
+    "ipywidgets>=8.1.0",
+]
+render = [
+    "pygame>=2.5.0",
+    "Pillow>=10.0.0",
+]
+
+[project.scripts]
+marl = "marl.cli:app"
+
+[project.urls]
+Repository = "https://github.com/marl-research/marl-agentic-ai"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["marl*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short --cov=marl --cov-report=term-missing"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning",
+]
+
+[tool.coverage.run]
+source = ["marl"]
+omit = ["tests/*", "scripts/*", "notebooks/*"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
